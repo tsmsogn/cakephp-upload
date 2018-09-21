@@ -1,6 +1,6 @@
 {
     "name": "tsmsogn/cakephp-upload",
-    "description": "CakephpUpload plugin for CakePHP",
+    "description": "Upload plugin wraps https://github.com/brandonsavage/Upload for CakePHP",
     "type": "cakephp-plugin",
     "license": "MIT",
     "require": {
