@@ -1,5 +1,5 @@
 <?php
-namespace CakephpUpload\Model\Behavior;
+namespace Tsmsogn\CakephpUpload\Model\Behavior;
 
 use Cake\ORM\Behavior;
 use Cake\Utility\Hash;
@@ -19,7 +19,7 @@ class UploadBehavior extends Behavior
      * @var array
      */
     protected $_defaultConfig = [
-        self::STRATEGY_CONFIG_KEY => \CakephpUpload\UploadInfo\DefaultUploadStrategy::class,
+        self::STRATEGY_CONFIG_KEY => \Tsmsogn\CakephpUpload\UploadInfo\DefaultUploadStrategy::class,
         self::DEFAULT_CONFIG_KEY => [
             'overwrite' => false,
             'directory' => WWW_ROOT . 'uploads',
@@ -71,10 +71,10 @@ class UploadBehavior extends Behavior
     }
 
     /**
-     * @param \CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy
+     * @param \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy
      * @return \Upload\File
      */
-    public function getFile($field, \CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy)
+    public function getFile($field, \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy)
     {
         $storage = new \Upload\Storage\FileSystem($destinationStrategy->getDirectory(), $destinationStrategy->isOverwrite());
         $file = new \Upload\File($field, $storage);
@@ -90,7 +90,7 @@ class UploadBehavior extends Behavior
      * @param $directory
      * @param $filename
      * @param bool $overwrite
-     * @return \CakephpUpload\UploadInfo\UploadAwareInterface
+     * @return \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface
      */
     protected function getUploadStrategy($directory, $filename, $overwrite = false)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CakephpUpload\Controller;
+namespace Tsmsogn\CakephpUpload\Controller;
 
 use App\Controller\AppController as BaseController;
 

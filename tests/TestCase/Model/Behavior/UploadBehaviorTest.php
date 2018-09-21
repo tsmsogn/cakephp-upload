@@ -1,11 +1,11 @@
 <?php
-namespace CakephpUpload\Test\TestCase\Model\Behavior;
+namespace Tsmsogn\CakephpUpload\Test\TestCase\Model\Behavior;
 
 use Cake\TestSuite\TestCase;
-use CakephpUpload\Model\Behavior\UploadBehavior;
+use Tsmsogn\CakephpUpload\Model\Behavior\UploadBehavior;
 
 /**
- * CakephpUpload\Model\Behavior\UploadBehavior Test Case
+ * Tsmsogn\CakephpUpload\Model\Behavior\UploadBehavior Test Case
  */
 class UploadBehaviorTest extends TestCase
 {
@@ -13,7 +13,7 @@ class UploadBehaviorTest extends TestCase
     /**
      * Test subject
      *
-     * @var \CakephpUpload\Model\Behavior\UploadBehavior
+     * @var \Tsmsogn\CakephpUpload\Model\Behavior\UploadBehavior
      */
     public $Upload;
 

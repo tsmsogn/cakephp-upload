@@ -1,6 +1,6 @@
 <?php
 
-namespace CakephpUpload\UploadInfo;
+namespace Tsmsogn\CakephpUpload\UploadInfo;
 
 
 interface UploadAwareInterface
