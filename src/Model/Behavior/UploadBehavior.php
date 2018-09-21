@@ -59,9 +59,9 @@ class UploadBehavior extends Behavior
 
             $config = Hash::merge($defaultConfig, $config);
 
-            $strategy = $this->getUploadStrategy($config['directory'], $config['filename'], $config['overwrite']);
+            $strategy = $this->_getUploadStrategy($config['directory'], $config['filename'], $config['overwrite']);
 
-            $file = $this->getFile($field, $strategy);
+            $file = $this->_getFile($field, $strategy);
             $file->upload();
 
             $results[$field] = $file;
@@ -74,7 +74,7 @@ class UploadBehavior extends Behavior
      * @param \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy
      * @return \Upload\File
      */
-    public function getFile($field, \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy)
+    protected function _getFile($field, \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy)
     {
         $storage = new \Upload\Storage\FileSystem($destinationStrategy->getDirectory(), $destinationStrategy->isOverwrite());
         $file = new \Upload\File($field, $storage);
@@ -96,7 +96,7 @@ class UploadBehavior extends Behavior
      * @param bool $overwrite
      * @return \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface
      */
-    protected function getUploadStrategy($directory, $filename, $overwrite = false)
+    protected function _getUploadStrategy($directory, $filename, $overwrite = false)
     {
         return new $this->_config[self::STRATEGY_CONFIG_KEY]($directory, $filename, $overwrite);
     }
