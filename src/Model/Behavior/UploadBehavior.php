@@ -80,7 +80,11 @@ class UploadBehavior extends Behavior
         $file = new \Upload\File($field, $storage);
 
         if ($destinationStrategy->getFilename() !== null) {
-            $file->setName($destinationStrategy->getFilename());
+            $filename = $destinationStrategy->getFilename();
+            if (is_callable($filename)) {
+                $filename = call_user_func($filename, $file);
+            }
+            $file->setName($filename);
         }
 
         return $file;
