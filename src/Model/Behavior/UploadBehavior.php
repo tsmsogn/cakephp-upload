@@ -71,16 +71,16 @@ class UploadBehavior extends Behavior
     }
 
     /**
-     * @param \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy
+     * @param \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $uploadStrategy
      * @return \Upload\File
      */
-    protected function _getFile($field, \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $destinationStrategy)
+    protected function _getFile($field, \Tsmsogn\CakephpUpload\UploadInfo\UploadAwareInterface $uploadStrategy)
     {
-        $storage = new \Upload\Storage\FileSystem($destinationStrategy->getDirectory(), $destinationStrategy->isOverwrite());
+        $storage = new \Upload\Storage\FileSystem($uploadStrategy->getDirectory(), $uploadStrategy->isOverwrite());
         $file = new \Upload\File($field, $storage);
 
-        if ($destinationStrategy->getFilename() !== null) {
-            $filename = $destinationStrategy->getFilename();
+        if ($uploadStrategy->getFilename() !== null) {
+            $filename = $uploadStrategy->getFilename();
             if (is_callable($filename)) {
                 $filename = call_user_func($filename, $file);
             }
